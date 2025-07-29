@@ -2,6 +2,8 @@ import * as React from "react";
 import { Table, Button, Dropdown, Space, message } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
+import '../i18n';
+import { Trans, useTranslation } from "react-i18next";
 
 interface DataType {
   key: string;
@@ -46,14 +48,14 @@ const initialData: DataType[] = [
 ];
 
 export const MyTableComponent = () => {
+  const { t, i18n } = useTranslation("RFP");
   const [data, setData] = React.useState(initialData);
-  const [selectedLanguage, setSelectedLanguage] = React.useState<"en" | "du">("en");
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
     if (e.key === "1") {
-      setSelectedLanguage("en");
+      i18n.changeLanguage("en");
     } else if (e.key === "2") {
-      setSelectedLanguage("du");
+      i18n.changeLanguage("nl");
     }
   };
 
@@ -63,22 +65,22 @@ export const MyTableComponent = () => {
 
   const columns = [
     {
-      title: selectedLanguage === "en" ? "Name" : "Naam",
+      title: t("name_label"),
       dataIndex: "name",
       key: "name",
     },
     {
-      title: selectedLanguage === "en" ? "Age" : "Leeftijd",
+      title: t("age_label"),
       dataIndex: "age",
       key: "age",
     },
     {
-      title: selectedLanguage === "en" ? "Address" : "Adres",
+      title: t("address_label"),
       dataIndex: "address",
       key: "address",
     },
     {
-      title: "Action",
+      title: (t("action_label")),
       key: "action",
       render: (_text: string, record: DataType) => (
         <Button
@@ -86,7 +88,7 @@ export const MyTableComponent = () => {
           style={{ color: "#5f8cff" }}
           onClick={() => handleDelete(record.key)}
         >
-          {selectedLanguage === "en" ? "Delete" : "Verwijderen"}
+          {t("del_btn_txt")}
         </Button>
       ),
     },
@@ -114,7 +116,7 @@ export const MyTableComponent = () => {
         <Dropdown menu={menuProps}>
           <Button>
             <Space>
-              {selectedLanguage === "en" ? "Select Language" : "Selecteer Taal"}
+              {t("dropdown_label")}
               <DownOutlined />
             </Space>
           </Button>

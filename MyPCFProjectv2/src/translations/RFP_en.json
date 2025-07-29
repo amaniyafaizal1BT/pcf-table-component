@@ -1,0 +1,9 @@
+{
+    "name_label": "Name",
+    "age_label": "Age",
+    "address_label": "Address",
+    "action_label": "Action",
+    "del_btn_txt": "Delete",
+    "dropdown_label": "Select Language",
+    "expand_warning_txt": "Not Expandable"
+}

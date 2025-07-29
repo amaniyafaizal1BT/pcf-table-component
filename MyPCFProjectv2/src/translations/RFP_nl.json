@@ -1,0 +1,9 @@
+{
+    "name_label": "Naam",
+    "age_label": "Leeftijd",
+    "address_label": "Adres",
+    "action_label": "Actie",
+    "del_btn_txt": "Verwijderen",
+    "dropdown_label": "Selecteer Taal",
+    "expand_warning_txt": "Niet uitvouwbaar"
+}

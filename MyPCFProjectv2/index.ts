@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import { createRoot, Root } from "react-dom/client";
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import { MyTableComponent } from "./src/component/TableComponent";
+import i18n from "./src/i18n";
 import DataSetInterfaces = ComponentFramework.PropertyHelper.DataSetApi;
 type DataSet = ComponentFramework.PropertyTypes.DataSet;
 
@@ -67,6 +68,7 @@ export class MyPCFProjectv2
     container: HTMLDivElement
   ): void {
     this.container = container;
+    i18n.changeLanguage("en");
   }
 
   public updateView(context: ComponentFramework.Context<IInputs>): void {
